@@ -1,27 +1,24 @@
-require 'addressable/uri'
-
 class DonorsController < ApplicationController
 
 	def index
 		url = Addressable::URI.new(
 	   :scheme => "https",
 	   :host => "rally.org",
-	   :path => "api/causes/1LlhOkcgMIG/donations",
+	   :path => "api/causes/1LlhOkcgMIG/top_donors",
 	   :query_values => {:access_token => "FLQleTAlvZT7CKn3mwNjXbao5poYo71tadi6XOlT"}
  		).to_s
 
- 		response = RestClient.get(url)
+		@donors = JSON.parse(RestClient.get(url))
 
-		@donations = []
+		url = Addressable::URI.new(
+	   :scheme => "https",
+	   :host => "rally.org",
+	   :path => "api/causes/1LlhOkcgMIG",
+	   :query_values => {:access_token => "FLQleTAlvZT7CKn3mwNjXbao5poYo71tadi6XOlT"}
+ 		).to_s
 
-		JSON.parse(response).each do |data|
-			@donations << {
-				name: data["first_name"] + " " + data["last_name"],
-				donation: data["amount_cents"],
-				zipcode: data["address_zip"]
-			}
-		end
-
+		@cause = JSON.parse(RestClient.get(url))
+		debugger
 		render :index
 	end
 

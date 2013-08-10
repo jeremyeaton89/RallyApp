@@ -1,12 +1,33 @@
-<h1>Keystone XL: America's Risk, Foreign Oil's Reward</h1>
+<img class="logo" src="<%= @cause['image_url'] %>">
+<h1><%= @cause["name"] %></h1>
+
+<!-- <div class="goal-container">
+	<div class="goal-meter-container">
+		<div 
+			class="goal-meter" 
+			style="width: <%#= @cause["total_raised"] / @cause["current_fundraising_goal"] %>%"></div>
+	</div>
+</div>
+ -->
 <h2>Donations Leaderboard</h2>
 
-<% @donations.sort_by { |donor| -donor[:donation] }.each do |donation| %>
+<div class="content">
+	<% @donors.sort_by { |donor| donor[:amount] }.each_with_index do |donor, i| %>
+		
+		<div class="donor-container">
+			<div class="donor-border">
+				<span class="name">
+				<%= i + 1 %>. <%= donor["first_name"] + " " + donor["last_name"] %> 
+				</span>
+				<div class="donation-bar" data-donation="<%= donor["amount"] %>"></div>
+				<span class="donation-amount">$<%= donor["amount"] / 100 %></span>
+			</div>
+			<div class="star-container">
+				<% (donor["amount"] / 2500).times do |stars| %>
+					<span class="icon-star-empty"></span>
+				<% end %>
+			</div>
+		</div>
 
-	<div class="donor-container">
-		<span class="name"><%= donation[:name] %></span>
-		<div class="donation-bar" data-donation="<%= donation[:donation] %>"></div>
-		<span class="donation-amount"><%= donation[:donation] %></span>
-	</div>
-
-<% end %>
+	<% end %>
+</div>
