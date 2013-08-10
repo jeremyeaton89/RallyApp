@@ -1,15 +1,14 @@
-<img class="logo" src="<%= @cause['image_url'] %>">
-<h1><%= @cause["name"] %></h1>
+<header>
+	<img class="logo" src="<%= @cause['image_url'] %>">
+	<h1><%= @cause["name"] %></h1>
 
-<!-- <div class="goal-container">
-	<div class="goal-meter-container">
-		<div 
-			class="goal-meter" 
-			style="width: <%#= @cause["total_raised"] / @cause["current_fundraising_goal"] %>%"></div>
+	<div class="goal-container">
+		<span class="amount-raised">Amount Raised: $<%= @cause["total_raised"] / 100 %></span>
+		<span class="goal">Fundaising Goal: $<%= @cause["current_fundraising_goal"] / 100 %></span>
 	</div>
-</div>
- -->
-<h2>Donations Leaderboard</h2>
+	
+	<h2>Donations Leaderboard</h2>
+</header>
 
 <div class="content">
 	<% @donors.sort_by { |donor| donor[:amount] }.each_with_index do |donor, i| %>

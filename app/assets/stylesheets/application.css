@@ -17,6 +17,14 @@ body {
 	background-color: #CC6600;
 }
 
+header {
+	position: fixed;
+	width: 100%;
+	background-color: #CC6600;
+	top: 0;
+	z-index: 2;
+}
+
 h1 {
 	float: left;
 	color: white;
@@ -31,12 +39,14 @@ h2 {
 	padding-left: 140px;
 }
 .container {
+	top:;
 	margin: 0px, 10px;
 }
 
 .content {
 	position: relative;
 	left: 100px;
+	top: 130px;
 }
 
 .logo {
@@ -47,6 +57,11 @@ h2 {
 }
 
 .goal-container {
+	margin-left: 100px;
+	margin-top: 15px;
+	padding-left: 10px;
+	padding-top: 10px;
+	border-radius: 13px;
 	float: left;
 	box-sizing: border-box;
 	width: 300px;
