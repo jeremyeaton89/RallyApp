@@ -1,3 +1,5 @@
+require 'addressable/uri'
+
 class DonorsController < ApplicationController
 
 	def index
