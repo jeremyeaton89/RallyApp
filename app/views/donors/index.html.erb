@@ -1,0 +1,12 @@
+<h1>Keystone XL: America's Risk, Foreign Oil's Reward</h1>
+<h2>Donations Leaderboard</h2>
+
+<% @donations.sort_by { |donor| -donor[:donation] }.each do |donation| %>
+
+	<div class="donor-container">
+		<span class="name"><%= donation[:name] %></span>
+		<div class="donation-bar" data-donation="<%= donation[:donation] %>"></div>
+		<span class="donation-amount"><%= donation[:donation] %></span>
+	</div>
+
+<% end %>
