@@ -57,7 +57,7 @@ h2 {
 }
 
 .goal-container {
-	margin-left: 100px;
+	margin-left: 50px;
 	margin-top: 15px;
 	padding-left: 10px;
 	padding-top: 10px;
@@ -93,6 +93,7 @@ h2 {
 	border: 3px solid black;
 	border-radius: 25px;
 	margin: 5px;
+	padding-bottom: 16px;
 }
 
 .donor-border:hover {
