@@ -18,7 +18,6 @@ class DonorsController < ApplicationController
  		).to_s
 
 		@cause = JSON.parse(RestClient.get(url))
-		debugger
 		render :index
 	end
 
