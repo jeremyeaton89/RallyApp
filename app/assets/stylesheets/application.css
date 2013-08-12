@@ -57,8 +57,7 @@ h2 {
 }
 
 .goal-container {
-	margin-left: 50px;
-	margin-top: 15px;
+	margin: 15px -100px 0 10px;
 	padding-left: 10px;
 	padding-top: 10px;
 	border-radius: 13px;
