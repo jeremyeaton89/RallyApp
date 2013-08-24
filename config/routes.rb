@@ -1,4 +1,4 @@
 RallyApp::Application.routes.draw do
-  root to: "causes#index"
-  resources :causes
+  root to: "donors#index"
+  resources :donors
 end
