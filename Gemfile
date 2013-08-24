@@ -8,6 +8,7 @@ group :development do
 	gem 'sqlite3'
 	gem 'better_errors'
 	gem 'binding_of_caller'
+	gem 'debugger'
 end
 
 group :assets do
@@ -21,4 +22,3 @@ gem 'jquery-rails'
 gem 'rest-client'
 gem 'json'
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'debugger'

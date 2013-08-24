@@ -1,0 +1,32 @@
+<header>
+	<img class="logo" src="<%= @cause['image_url'] %>">
+	<h1><%= @cause["name"] %></h1>
+
+	<div class="goal-container">
+		<span class="amount-raised">Amount Raised: $<%= @cause["total_raised"] / 100 %></span>
+		<span class="goal">Fundaising Goal: $<%= @cause["current_fundraising_goal"] / 100 %></span>
+	</div>
+	
+	<h2>Donations Leaderboard</h2>
+</header>
+
+<div class="content">
+	<% @donors.sort_by { |donor| donor[:amount] }.each_with_index do |donor, i| %>
+		
+		<div class="donor-container">
+			<div class="donor-border">
+				<span class="name">
+				<%= i + 1 %>. <%= donor["first_name"] + " " + donor["last_name"] %> 
+				</span>
+				<div class="donation-bar" data-donation="<%= donor["amount"] %>"></div>
+				<span class="donation-amount">$<%= donor["amount"] / 100 %></span>
+			</div>
+			<div class="star-container">
+				<% (donor["amount"] / 2500).times do |stars| %>
+					<span class="icon-star-empty"></span>
+				<% end %>
+			</div>
+		</div>
+
+	<% end %>
+</div>
