@@ -1,3 +1,35 @@
 <h1>Add new Cause</h1>
 
-<% form_for(@cause), url: { action: "create"}
+<%= link_to "See All Causes", donors_url %>
+
+<form class="new-cause" action="/donors" method="post">
+
+	<label for="access_token">Access Token</label>
+	<input 
+		id="access_token"
+		name="cause[access_token]" 
+		type="text" 
+		placeholder="Insert Access Token" 
+		autofocus
+		required
+		pattern="^[0-9a-zA-Z]{40}$"
+		oninvalid="setCustomValidity('40 character alphanumeric Access Token required')"/>
+
+	<br>
+
+	<label for="rally_id">Rally Id</label>
+	<input 
+		id="rally_id"
+		name="cause[rally_id]"
+		type="text"
+		placeholder="Insert Rally Id"
+		required
+		pattern="^[0-9a-zA-Z]{11}$"
+		oninvalid="setCustomValidity('11 character alphanumeric Rally Id required')"/>
+
+	<br>
+	<br>
+
+	<input type="submit" value="Add Cause"/>
+
+</form>

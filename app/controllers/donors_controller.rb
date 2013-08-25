@@ -10,7 +10,7 @@ class DonorsController < ApplicationController
 		@causes = []
 
 		[
-			"aFYhplNyi3XBAzurIZXBvDnO32D9Vsh0gKrV0dQk",
+			# "aFYhplNyi3XBAzurIZXBvDnO32D9Vsh0gKrV0dQk",
 			"1PRPzW6N7Jp3qTpZsGcIz6Kh1YLrQySHgmP261fQ",
 			"Lb2n3v5C2XdP3LSajEaTCp5tOudRmDxoFeHwbzXA",
 			"07Ax5WOhGKc1EOlGwxp2VL8yI7fcPTGcy4Zs1M0A",
@@ -29,24 +29,51 @@ class DonorsController < ApplicationController
 	end
 
 	def show
+		@cause = Cause.find(params[:id]) 
 		debugger
 		url = Addressable::URI.new(
 	   :scheme => "https",
 	   :host => "rally.org",
-	   :path => "api/causes/#{params[:id]}/top_donors",
-	   :query_values => {:access_token => "FLQleTAlvZT7CKn3mwNjXbao5poYo71tadi6XOlT"}
+	   :path => "api/causes/#{@cause[:id]}/top_donors",
+	   :query_values => {:access_token => @cause}
  		).to_s
 
 		@donors = JSON.parse(RestClient.get(url))
 
+
+
 		url = Addressable::URI.new(
 	   :scheme => "https",
 	   :host => "rally.org",
-	   :path => "api/causes/#{params[:id]}",
-	   :query_values => {:access_token => "FLQleTAlvZT7CKn3mwNjXbao5poYo71tadi6XOlT"}
+	   :path => "api/causes/#{@cause[:id]}",
+	   :query_values => {:access_token => @cause}
  		).to_s
 
-		@cause = JSON.parse(RestClient.get(url))
+		@cause.sync JSON.parse(RestClient.get(url))
+	end
+
+	def create
+		# verify authenticity of access_token
+		url = Addressable::URI.new(
+		   :scheme => "https",
+		   :host => "rally.org",
+		   :path => "api/causes/#{params[:cause][:rally_id]}",
+		   :query_values => {:access_token => params[:cause][:access_token]}
+	 	).to_s
+
+	 	unless JSON.parse(RestClient.get(url))
+	 		flash[:error] = "Invalid Authorization Token or Rally Id"
+	 		render :new
+	 	end
+
+		@cause = Cause.new(params[:cause])
+	 	if @cause.save
+	 		flash[:notice] = "New Cause Added."
+	 		redirect_to donor_url
+	 	else
+	 		flash[:error] = @cause.errors.full_messages
+	 		render :new 
+	 	end
 	end
 
 end

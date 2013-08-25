@@ -1,0 +1,9 @@
+form.new-cause {
+	position: relative;
+	clear: both;
+
+	input[type='text'] {
+		position: absolute;
+		left: 120px;
+	}
+}

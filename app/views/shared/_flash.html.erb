@@ -1,0 +1,11 @@
+<div class="flash">
+	<% if flash[:error] %>
+		<% flash[:error].each do |msg| %>
+			<span class="error"><%= msg %></span>
+		<% end %>
+	<% elsif flash[:notice] %>
+		<% flash[:error].each do |msg| %>
+			<span class="notice"><%= msg %></span>
+		<% end %>
+	<% end %>
+</div>
