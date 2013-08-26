@@ -1,7 +1,7 @@
 <header>
 	<img class="logo" src="<%= @cause.image_url %>">
 	<h1 class="show"><%= @cause.name %></h1>
-	<%= link_to "Show All Causes", causes_url, class: "link" %>
+	<%= link_to "Show All Causes", causes_url %>
 
 	<div class="goal-container">
 		<span class="amount-raised">Amount Raised: $<%= @cause.total_raised / 100 %></span>
