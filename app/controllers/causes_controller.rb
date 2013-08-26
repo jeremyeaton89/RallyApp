@@ -1,6 +1,6 @@
 require 'addressable/uri'
 
-class DonorsController < ApplicationController
+class CausesController < ApplicationController
 
 	def new
 
@@ -69,7 +69,7 @@ class DonorsController < ApplicationController
 		@cause = Cause.new(params[:cause])
 	 	if @cause.save
 	 		flash[:notice] = "New Cause Added."
-	 		redirect_to @cause
+	 		redirect_to donor_url
 	 	else
 	 		flash[:error] = @cause.errors.full_messages
 	 		render :new 

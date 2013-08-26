@@ -1,0 +1,14 @@
+<div>
+
+	<h1>Causes</h1>
+
+	<%= link_to "Add New Cause", new_cause_url %>
+	<ul class="index">
+		<% @causes.each do |cause| %>
+		<li>
+			<%= link_to cause[0]["name"], cause  %>
+		</li>
+		<% end %>
+	</ul>
+
+</div>
