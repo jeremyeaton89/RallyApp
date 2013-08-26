@@ -1,8 +1,8 @@
 class Cause < ActiveRecord::Base
-  attr_accessible :access_token, :rally_id, :name
+  attr_accessible :access_token, :rally_id
 
-  validates :access_token, presence: true, length: { is: 40, message: "Key is 40 characters in length." }
-  validates :rally_id, presence: true, length: { is: 11, message: "Id is 11 characters in length"}, uniqueness: { message: "already added." }  
+  validates :access_token, presence: true
+  validates :rally_id, presence: true, uniqueness: { message: "already added." }  
 
     def sync
       url = Addressable::URI.new(
