@@ -1,10 +1,15 @@
 form.new-cause {
 	position: relative;
 	clear: both;
+	margin: 10px 10px;
 
 	input[type='text'] {
 		position: absolute;
 		left: 120px;
 		width: 200px;
+	}
+
+	p {
+		margin: 0 0;
 	}
 }

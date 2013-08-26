@@ -1,14 +1,17 @@
-<div>
+<h1>Causes</h1>
 
-	<h1>Causes</h1>
+<%= link_to "Add New Cause", new_cause_url %>
+<ul class="index">
+	<% @causes.each do |cause| %>
+	<li>
+		<div class="donor-container">
+			<a href="/causes/<%= cause.id %>">
+				<div class="donor-border">
+					<%= cause.name %>
+				</div>
+			</a>
+		</div>
+	</li>
+	<% end %>
+</ul>
 
-	<%= link_to "Add New Cause", new_cause_url %>
-	<ul class="index">
-		<% @causes.each do |cause| %>
-		<li>
-			<%= link_to cause.name, cause  %>
-		</li>
-		<% end %>
-	</ul>
-
-</div>
