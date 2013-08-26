@@ -1,16 +1,29 @@
 class Cause < ActiveRecord::Base
-  attr_accessible :access_token, :rally_id
+  attr_accessible :access_token, :rally_id, :name
 
   validates :access_token, presence: true, length: { is: 40, message: "Key is 40 characters in length." }
   validates :rally_id, presence: true, length: { is: 11, message: "Id is 11 characters in length"}, uniqueness: [true, message: "Cause is already added."]
   
-  before_save :verify_authenticity
+  # before_save :verify_authenticity
 
-  def verify_authenticity
+ #  def verify_authenticity
   	
-  end
+ #  end
 
-  def sync(json)
-	debugger
-  end
+    def sync
+
+      url = Addressable::URI.new(
+       :scheme => "https",
+       :host => "rally.org",
+       :path => "api/causes/#{self.rally_id}",
+       :query_values => {:access_token => self.access_token}
+      ).to_s
+
+      data = JSON.parse(RestClient.get(url))
+      self.name = data["name"]
+      self.total_raised = data["total_raised"].to_i
+      self.current_fundraising_goal = data["current_fundraising_goal"].to_i
+      self.image_url = data["image_url"]
+      self.save
+    end
 end

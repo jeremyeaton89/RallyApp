@@ -6,7 +6,7 @@
 	<ul class="index">
 		<% @causes.each do |cause| %>
 		<li>
-			<%= link_to cause[0]["name"], cause  %>
+			<%= link_to cause.name, cause  %>
 		</li>
 		<% end %>
 	</ul>

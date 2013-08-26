@@ -1,0 +1,86 @@
+h1.show {
+	padding-left: 125px;
+}
+
+.content {
+	position: relative;
+	left: 100px;
+	top: 130px;
+}
+
+.logo {
+	float: left;
+	width: 100px;
+	height: 80px;
+	border-radius: 40px;
+}
+
+.goal-container {
+	position: absolute;
+	top: 50px;
+	left: 600px;
+	margin: 15px -100px 0 10px;
+	padding-left: 10px;
+	padding-top: 10px;
+	border-radius: 13px;
+	box-sizing: border-box;
+	width: 270px;
+	height: 60px;
+	border: 4px solid black;
+
+}
+
+.goal-meter-container {
+	box-sizing: border-box;
+	width: 280px;
+	height: 50px;
+	border: 2px solid black;
+	margin: auto auto;
+}
+
+.goal-meter {
+	background-color: green;
+}
+.donor-container {
+	position: relative;
+}
+
+.donor-border {
+	position: relative;
+	box-sizing: border-box;
+	height: 20px;
+	width: 400px;
+	border: 3px solid black;
+	border-radius: 25px;
+	margin: 5px;
+	padding-bottom: 16px;
+}
+
+.donor-border:hover {
+	background-color: white;
+}
+
+.name {
+	margin: 10px 10px;
+}
+
+.donation-bar {
+	margin: 10px 10px;
+}
+
+.donation-amount {
+	position: absolute;
+	right: 5px;
+	top: 0px;
+}
+
+.star-container {
+	position: absolute;
+	left: 420px;
+	top: 2px;
+	color: yellow;
+}
+
+.icon-star-empty {
+	margin: -6px;
+}

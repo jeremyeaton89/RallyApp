@@ -1,10 +1,11 @@
 <header>
-	<img class="logo" src="<%= @cause['image_url'] %>">
-	<h1><%= @cause["name"] %></h1>
+	<img class="logo" src="<%= @cause.image_url %>">
+	<h1 class="show"><%= @cause.name %></h1>
+	<%= link_to "Show All Causes", causes_url %>
 
 	<div class="goal-container">
-		<span class="amount-raised">Amount Raised: $<%= @cause["total_raised"] / 100 %></span>
-		<span class="goal">Fundaising Goal: $<%= @cause["current_fundraising_goal"] / 100 %></span>
+		<span class="amount-raised">Amount Raised: $<%= @cause.total_raised / 100 %></span>
+		<span class="goal">Fundaising Goal: <%= @cause.current_fundraising_goal ? "$#{@cause.current_fundraising_goal / 100}" : "No Goal Established" %></span>
 	</div>
 	
 	<h2>Donations Leaderboard</h2>
@@ -22,7 +23,7 @@
 				<span class="donation-amount">$<%= donor["amount"] / 100 %></span>
 			</div>
 			<div class="star-container">
-				<% (donor["amount"] / 2500).times do |stars| %>
+				<% (donor["amount"] / 10000).times do |stars| %>
 					<span class="icon-star-empty"></span>
 				<% end %>
 			</div>
