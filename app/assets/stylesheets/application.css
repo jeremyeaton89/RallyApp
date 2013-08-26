@@ -39,6 +39,14 @@ h2 {
 	left: 140px;
 	letter-spacing: 3px;
 }
+a.link {
+	font-weight: bold;
+	color: black;
+	margin-left: 45px;
+}
+a:hover {
+	text-decoration: none;
+}
 .container {
 	margin: 0px 10px;
 }
