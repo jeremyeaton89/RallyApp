@@ -14,4 +14,4 @@ I gained exposure to several interesting Environmental APIs at this hackathon, i
 * Connect any Cause to this leaderboard app (with valid Access Token and Rally Id)
 
 ## ToDo:
-* donor show page
+* Donor show page
