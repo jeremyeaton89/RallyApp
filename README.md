@@ -2,7 +2,7 @@
 
 This is my submission to the [Clean and Green Hackathon](http://cleanandgreenhackathon.com/developers/), hosted by Rally.org. 
 
-**[See my App](http://secret-tor-9770.herokuapp.com/)!**
+**[See my App!](http://secret-tor-9770.herokuapp.com/)**
 
 The idea behind this app is that a leaderboard might foster greater participation and a larger overall donation count, for causes that opt in. Any person with a valid Access Token and Rally Id can add a cause.
 
